@@ -33,6 +33,6 @@ namespace FootballManager.Domain.Entities
 
         public DataState DataState { get; set; }
 
-        public virtual ModifiedDate ModifiedDate { get; }
+        public virtual ModifiedDate ModifiedDate { get; set; }
     }
 }

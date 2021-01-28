@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FootballManager.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,7 +38,7 @@ namespace FootballManager.Persistence.Repositories
             try
             {
                 await FootballManagerContext.AddAsync(entity);
-                await FootballManagerContext.SaveChangesAsync();
+                await FootballManagerContext.SaveChangesAsync(true,default);
 
                 return entity;
             }
@@ -57,7 +58,7 @@ namespace FootballManager.Persistence.Repositories
             try
             {
                 FootballManagerContext.Update(entity);
-                await FootballManagerContext.SaveChangesAsync();
+                await FootballManagerContext.SaveChangesAsync(true, default);
 
                 return entity;
             }

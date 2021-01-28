@@ -55,5 +55,29 @@ namespace FootballManager.Api.Controllers
         {
             return ResolveResult(await Mediator.Send(addPlayerCommand));
         }
+
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesDefaultResponseType]
+        [Route("players")]
+        public async Task<ActionResult<PlayerViewModel>> Update([FromBody] UpdatePlayerCommand updatePlayerCommand)
+        {
+            return ResolveResult(await Mediator.Send(updatePlayerCommand));
+        }
+
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesDefaultResponseType]
+        [Route("players")]
+        public async Task<ActionResult<PlayerViewModel>> Delete([FromBody] DeletePlayerCommand deletePlayerCommand)
+        {
+            return ResolveResult(await Mediator.Send(deletePlayerCommand));
+        }
     }
 }

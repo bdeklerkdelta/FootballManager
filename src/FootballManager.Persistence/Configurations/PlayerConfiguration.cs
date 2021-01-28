@@ -14,6 +14,8 @@ namespace FootballManager.Persistence.Configurations
             builder.HasKey(c => c.Id);
 
             builder.OwnsOne(c => c.EmailAddress).Property(p => p.Value);
+            builder.OwnsOne(c => c.ModifiedDate).Property(p => p.Value);
+            builder.OwnsOne(c => c.CreatedDate).Property(p => p.Value);
         }
     }
 }
