@@ -18,6 +18,7 @@ using FootballManager.Persistence;
 using FootballManager.Api.Controllers;
 using Microsoft.AspNetCore.Mvc.Versioning.Conventions;
 using FootballManager.Persistence.Repositories;
+using FootballManager.Persistence.Repositories.PlayerRepository;
 
 namespace FootballManager
 {
@@ -44,18 +45,20 @@ namespace FootballManager
                {
                    options.ReportApiVersions = true;
                    options.DefaultApiVersion = new ApiVersion(0, 1, "Active");
+                   options.Conventions.Controller<PlayerController>().HasApiVersion(0, 1);
                });
 
             // Add AutoMapper
             services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
 
-            services.AddDbContext<FootballManagerDbContext>(options => options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
+            services.AddDbContext<FootballManagerDbContext>(options => options.UseInMemoryDatabase("Test"));
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
 
-            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IPlayerRepository, PlayerRepository>();
 
             // Add MediatR
             services.AddMediatR(typeof(RequestHandlerBase).GetTypeInfo().Assembly);

@@ -7,7 +7,12 @@ namespace FootballManager.Domain.Entities
 {
     public abstract class EntityBase
     {
-        protected EntityBase() { }
+        protected EntityBase() 
+        {
+            CreatedDate = DateTimeOffset.Now;
+            ModifiedDate = DateTimeOffset.Now;
+            DataState = DataState.Active;
+        }
 
         public EntityBase(CreatedDate createdDate, 
                 ModifiedDate modifiedDate, 

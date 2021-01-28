@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using FootballManager.Domain.Entities;
 
 namespace FootballManager.Persistence
 {
@@ -13,8 +14,11 @@ namespace FootballManager.Persistence
         {
         }
 
+        public virtual DbSet<Player> Players { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(FootballManagerDbContext).Assembly);
         }
     }
 }

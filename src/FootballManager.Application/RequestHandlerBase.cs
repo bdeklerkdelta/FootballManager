@@ -4,6 +4,8 @@ using FootballManager.Application.Models;
 using FootballManager.Application.ResponseNotifications.ErrorResponses;
 using FootballManager.Common.Notifications;
 using FootballManager.Domain.Exceptions;
+using System.Threading.Tasks;
+using FootballManager.Persistence;
 
 namespace FootballManager.Application
 {
@@ -16,6 +18,26 @@ namespace FootballManager.Application
         protected RequestHandlerBase(ILogger logger)
         {
             Logger = logger;
+        }
+
+        public async Task<TResult> ExecuteAsync<TResult>(Func<TResult, Task> action) where TResult : NotificationViewModel, new()
+        {
+            CallReference = Guid.NewGuid();
+            
+            var result = new TResult();
+
+            try
+            {
+                await action(result);
+            }
+            catch (Exception ex)
+            {
+                var notification = ErrorResponseNotifications.GeneralErrors.Unhandled(CallReference);
+                result.Notifications += ErrorResponseNotifications.GeneralErrors.Unhandled(CallReference);
+                Logger.LogError(ex, notification.ToString());
+            }
+
+            return result;
         }
 
         public TResult Execute<TResult>(Action<TResult> action) where TResult : NotificationViewModel, new()

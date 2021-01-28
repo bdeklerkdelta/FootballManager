@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "a3bbd1fd-86ca-4684-9a61-5c8548f9ca45",
+		"name": "FootballManager API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/v{version}",
+			"item": [
+				{
+					"name": "players",
+					"item": [
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/players",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"players"
+									]
+								},
+								"description": "Adds a player to the application"
+							},
+							"response": []
+						},
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

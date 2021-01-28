@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ namespace FootballManager.Persistence.Repositories
         {
             try
             {
+                FootballManagerContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
                 return FootballManagerContext.Set<TEntity>();
             }
             catch (Exception ex)
