@@ -41,7 +41,15 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": ""
+									"raw": "{{api-base-url}}/api/v{{version}}/players",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"players"
+									]
 								}
 							},
 							"response": []
@@ -53,6 +61,57 @@
 								"header": [],
 								"url": {
 									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n  \"id\": 1,\r\n  \"name\": \"NewName\",\r\n  \"surname\": \"aaa\",\r\n  \"height\": 1.80,\r\n  \"emailAddress\": \"test@email.com\"\r\n}"
+								},
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/players",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"players"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"Id\":\"1\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/players",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"players"
+									]
 								}
 							},
 							"response": []
