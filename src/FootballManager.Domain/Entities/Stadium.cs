@@ -8,17 +8,12 @@ using System.Threading.Tasks;
 
 namespace FootballManager.Domain.Entities
 {
-    public class Team : EntityBase
+    public class Stadium : EntityBase
     {     
         public string Name { get; set; }
 
-        public double Longitude { get; set; }
-        public double Latitude { get; set; }
+        public Team Team { get; set; }
 
-        public ICollection<Player> Players { get; set; }
-
-        public Stadium Stadium { get; set; }
-
-        public long StadiumId { get; set; }
+        public long TeamId { get; set; }
     }
 }

@@ -7,17 +7,16 @@ using System.Text;
 
 namespace FootballManager.Persistence.Configurations
 {
-    public class TeamConfiguration : IEntityTypeConfiguration<Team>
+    public class StadiumConfiguration : IEntityTypeConfiguration<Stadium>
     {
-        public void Configure(EntityTypeBuilder<Team> builder)
+        public void Configure(EntityTypeBuilder<Stadium> builder)
         {
             builder.HasKey(c => c.Id);
 
             builder.OwnsOne(c => c.ModifiedDate).Property(p => p.Value);
             builder.OwnsOne(c => c.CreatedDate).Property(p => p.Value);
 
-            builder.HasMany(c => c.Players).WithOne(m => m.Team).HasForeignKey(k => k.TeamId);
-            builder.HasOne(c => c.Stadium).WithOne(mb => mb.Team).HasForeignKey<Stadium>(k => k.TeamId);
+            builder.HasOne(c => c.Team).WithOne(m => m.Stadium).HasForeignKey<Team>(k => k.StadiumId);
         }
     }
 }

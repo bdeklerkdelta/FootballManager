@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Mvc.Versioning.Conventions;
 using FootballManager.Persistence.Repositories;
 using FootballManager.Persistence.Repositories.PlayerRepository;
 using FootballManager.Persistence.Repositories.TeamRepository;
+using FootballManager.Persistence.Repositories.StadiumRepository;
 using Microsoft.Data.Sqlite;
 
 namespace FootballManager
@@ -50,6 +51,7 @@ namespace FootballManager
                    options.DefaultApiVersion = new ApiVersion(0, 1, "Active");
                    options.Conventions.Controller<PlayerController>().HasApiVersion(0, 1);
                    options.Conventions.Controller<TeamController>().HasApiVersion(0, 1);
+                   options.Conventions.Controller<StadiumController>().HasApiVersion(0, 1);
                });
 
             // Add AutoMapper
@@ -68,6 +70,7 @@ namespace FootballManager
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddScoped<ITeamRepository, TeamRepository>();
+            services.AddScoped<IStadiumRepository, StadiumRepository>();
 
             // Add MediatR
             services.AddMediatR(typeof(RequestHandlerBase).GetTypeInfo().Assembly);
