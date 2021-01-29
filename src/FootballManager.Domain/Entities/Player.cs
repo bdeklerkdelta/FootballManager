@@ -11,5 +11,9 @@ namespace FootballManager.Domain.Entities
         public double Height { get; set; }
 
         public EmailAddress EmailAddress { get; set;}
+
+        public long? TeamId { get; set; }
+
+        public Team Team { get; set; }
     }
 }

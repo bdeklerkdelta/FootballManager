@@ -18,7 +18,12 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": ""
+									"raw": "{\r\n  \"name\": \"FirstName\",\r\n  \"surname\": \"aaa\",\r\n  \"height\": 1.80,\r\n  \"emailAddress\": \"test@email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
 								"url": {
 									"raw": "{{api-base-url}}/api/v{{version}}/players",
@@ -60,7 +65,16 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": ""
+									"raw": "{{api-base-url}}/api/v{{version}}/players/1",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"players",
+										"1"
+									]
 								}
 							},
 							"response": []
@@ -72,7 +86,12 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{ \r\n  \"id\": 1,\r\n  \"name\": \"NewName\",\r\n  \"surname\": \"aaa\",\r\n  \"height\": 1.80,\r\n  \"emailAddress\": \"test@email.com\"\r\n}"
+									"raw": "{ \r\n  \"id\": 1,\r\n  \"name\": \"NewName\",\r\n  \"surname\": \"aaa\",\r\n  \"height\": 1.80,\r\n  \"emailAddress\": \"test@email.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
 								"url": {
 									"raw": "{{api-base-url}}/api/v{{version}}/players",
@@ -111,6 +130,166 @@
 										"api",
 										"v{{version}}",
 										"players"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "teams",
+					"item": [
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" :\"BradTeam\",\r\n    \"latitude\": \"12.23\", \r\n    \"longitude\": \"11.52\",\r\n    \"playerIds\": [1,2]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/teams",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"teams"
+									]
+								},
+								"description": "Adds a player to the application"
+							},
+							"response": []
+						},
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/teams",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"teams"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/teams/1",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"teams",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"id\": 1,\r\n    \"name\": \"NewTeamName\",\r\n    \"latitude\": \"6.23\", \r\n    \"longitude\": \"7.52\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/teams",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"teams"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateTeamPlayers",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"Id\" :\"1\",\r\n\"playerIds\": [3]}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/teams/updatePlayers",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"teams",
+										"updatePlayers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"Id\":\"1\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/teams",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"teams"
 									]
 								}
 							},

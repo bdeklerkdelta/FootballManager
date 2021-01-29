@@ -19,8 +19,9 @@ namespace FootballManager.Persistence.Repositories
         {
             try
             {
-                FootballManagerContext.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
-                return FootballManagerContext.Set<TEntity>();
+                FootballManagerContext.Database.EnsureCreated();
+
+                return FootballManagerContext.Set<TEntity>().AsQueryable();
             }
             catch (Exception ex)
             {
@@ -37,7 +38,10 @@ namespace FootballManager.Persistence.Repositories
 
             try
             {
+                FootballManagerContext.Database.EnsureCreated();
+
                 await FootballManagerContext.AddAsync(entity);
+
                 await FootballManagerContext.SaveChangesAsync(true,default);
 
                 return entity;
@@ -57,7 +61,10 @@ namespace FootballManager.Persistence.Repositories
 
             try
             {
+                FootballManagerContext.Database.EnsureCreated();
+
                 FootballManagerContext.Update(entity);
+
                 await FootballManagerContext.SaveChangesAsync(true, default);
 
                 return entity;

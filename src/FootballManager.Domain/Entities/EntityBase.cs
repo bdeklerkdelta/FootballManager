@@ -26,7 +26,6 @@ namespace FootballManager.Domain.Entities
             DataState = dataState;
         }
 
-        [Key]
         public long Id { get;  } 
 
         public virtual CreatedDate CreatedDate { get;  }

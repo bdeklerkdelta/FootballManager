@@ -21,6 +21,8 @@ namespace FootballManager.Persistence
 
         public virtual DbSet<Player> Players { get; set; }
 
+        public virtual DbSet<Team> Teams { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(FootballManagerDbContext).Assembly);

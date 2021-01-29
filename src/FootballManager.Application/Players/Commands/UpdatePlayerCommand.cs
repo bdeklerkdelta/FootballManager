@@ -43,9 +43,9 @@ namespace FootballManager.Application.Players.Commands
                     playerToUpdate.Height = updatePlayerCommand.Height;
                     playerToUpdate.EmailAddress = updatePlayerCommand.EmailAddress;
 
-                    var addedPlayer = await _playerRepository.UpdateAsync(playerToUpdate);
+                    var updatedPlayer = await _playerRepository.UpdateAsync(playerToUpdate);
 
-                    var playerDto = _mapper.Map<PlayerLookupModel>(addedPlayer);
+                    var playerDto = _mapper.Map<PlayerLookupModel>(updatedPlayer);
                     response.PlayerLookupModel = playerDto;
                 });
             });

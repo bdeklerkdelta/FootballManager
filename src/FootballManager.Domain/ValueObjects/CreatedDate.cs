@@ -9,7 +9,6 @@ namespace FootballManager.Domain.ValueObjects
     {
         private readonly DateTimeOffset _value;
 
-
         private CreatedDate() { 
         }
 
