@@ -298,6 +298,137 @@
 					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "stadiums",
+					"item": [
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" :\"BradStadium\",\r\n    \"teamId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/stadiums",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"stadiums"
+									]
+								},
+								"description": "Adds a player to the application"
+							},
+							"response": []
+						},
+						{
+							"name": "GetAll",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/stadiums",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"stadiums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/stadiums/1",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"stadiums",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"id\": 1,\r\n    \"name\": \"NewStadiumName\",\r\n    \"teamId\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/stadiums",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"stadiums"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"Id\":\"1\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api-base-url}}/api/v{{version}}/stadiums",
+									"host": [
+										"{{api-base-url}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"stadiums"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
 			],
 			"protocolProfileBehavior": {}
